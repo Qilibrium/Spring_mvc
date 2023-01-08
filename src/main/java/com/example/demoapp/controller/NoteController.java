@@ -19,13 +19,13 @@ public class NoteController {
         return result;
     }
     @GetMapping("/list")
-    public ModelAndView getListOfNotes(){
+    public ModelAndView allNotes(){
         ModelAndView result = new ModelAndView("notes");
         result.addObject("noteList", service.listAll());
         return result;
     }
     @PostMapping("/delete")
-    public RedirectView deleteNote(@RequestParam long id){
+    public RedirectView deleteNoteById(@RequestParam long id){
         service.deleteById(id);
         return new RedirectView("/note/list");
     }
@@ -36,7 +36,7 @@ public class NoteController {
         return result;
     }
     @PostMapping("/edit")
-    public RedirectView editNote(@RequestParam long id, @RequestParam String title, @RequestParam String content){
+    public RedirectView updateNote(@RequestParam long id, @RequestParam String title, @RequestParam String content){
         Note note = new Note();
         note.setId(id);
         note.setTitle(title);
