@@ -30,7 +30,7 @@ public class NoteController {
         return new RedirectView("/note/list");
     }
     @GetMapping("/edit")
-    public ModelAndView editNote(@RequestParam Long id){
+    public ModelAndView editNoteBiId(@RequestParam Long id){
         ModelAndView result = new ModelAndView("edit");
         result.addObject("note", service.getById(id));
         return result;
